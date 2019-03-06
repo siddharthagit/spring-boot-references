@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"></meta>
+<link rel="stylesheet" type="text/css" th:href="@{~/css/bootstrap.min.css}" />
+<link rel="stylesheet" type="text/css" th:href="@{~/css/style.default.css}" />
+<title>Javaexp.blogspot.com Thymeleaf Example</title>
+</head>
+<body>
+  <div th:replace="fragment-page-header :: page-header"></div>
+  <div class="container-fluid row">
+    <div class="container col-lg-7" style="margin-left: 20px; height: 200px;">
+      <!-- Post-->
+      <div class="row" th:each="post : ${RootPosts}">
+        <div class="card" style="width: 800px; padding:30px;">
+          <div class="card-header">Blog</div>
+          <div class="card-block">
+            <h4 class="card-title" th:text="${post.name}">post.name</h4>
+            <p class="card-text" th:text="${post.summary}">Post Summary.</p>
+            <div class="card-block">
+              <a href="#" class="card-link" th:text="${post.authorFullName}">Author</a>
+              <a href="#" class="card-link">2 Months Ago</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Post-->
+    </div>
+    <div class="col-lg-4">
+      <div th:replace="fragment-categories :: fragment-categories">...</div>
+    </div>
+  </div>
+  <div th:replace="fragment-page-footer :: page-footer">...</div>
+</body>
+</html>

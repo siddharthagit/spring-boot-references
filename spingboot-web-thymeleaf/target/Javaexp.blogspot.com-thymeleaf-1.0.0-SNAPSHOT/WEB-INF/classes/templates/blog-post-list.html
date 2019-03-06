@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"></meta>
+<link rel="stylesheet" type="text/css" th:href="@{~/css/bootstrap.min.css}" />
+<link rel="stylesheet" type="text/css" th:href="@{~/css/style.default.css}" />
+<title>Javaexp.blogspot.com Thymeleaf Example</title>
+</head>
+<body>
+  <div th:replace="fragment-page-header :: page-header"></div>
+  <div class="container">
+    <div class="row">
+      <main class="post blog-post col-lg-8">
+      <section class="featured-posts no-padding-top">
+        <div class="container">
+          <!-- Post-->
+          <div class="row d-flex align-items-stretch"
+            th:each="post : ${RootPosts}">
+            <div class="text col-lg-12">
+              <div class="text-inner d-flex align-items-center">
+                <div class="content">
+                  <header class="post-header">
+                    <div class="category">
+                      <a href="#">Blog</a>
+                    </div>
+                    <a>
+                      <h2 class="h4" th:text="${post.name}">post.name</h2>
+                    </a>
+                  </header>
+                  <p th:text="${post.summary}">Post Summary</p>
+                  <footer class="post-footer d-flex align-items-center">
+                    <a href="#"
+                      class="author d-flex align-items-center flex-wrap">
+                      <div class="avatar"></div>
+                      <div class="title">
+                        <span th:text="${post.authorFullName}">${post.authorFullName}</span>
+                      </div>
+                    </a>
+                    <div class="date">
+                      <i class="icon-clock"></i> 2 months ago
+                    </div>
+                    <div class="comments">
+                      <i class="icon-comment"></i>12
+                    </div>
+                  </footer>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Post-->
+        </div>
+      </section>
+      </main>
+      <aside class="col-lg-4">
+        <div th:replace="fragment-categories :: fragment-categories">...</div>
+      </aside>
+    </div>
+  </div>
+</body>
+<div th:replace="fragment-page-footer :: page-footer">...</div>
+</html>
