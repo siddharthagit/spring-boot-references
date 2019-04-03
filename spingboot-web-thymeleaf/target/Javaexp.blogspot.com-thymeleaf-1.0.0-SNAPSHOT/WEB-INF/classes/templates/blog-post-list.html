@@ -8,54 +8,28 @@
 </head>
 <body>
   <div th:replace="fragment-page-header :: page-header"></div>
-  <div class="container">
-    <div class="row">
-      <main class="post blog-post col-lg-8">
-      <section class="featured-posts no-padding-top">
-        <div class="container">
-          <!-- Post-->
-          <div class="row d-flex align-items-stretch"
-            th:each="post : ${RootPosts}">
-            <div class="text col-lg-12">
-              <div class="text-inner d-flex align-items-center">
-                <div class="content">
-                  <header class="post-header">
-                    <div class="category">
-                      <a href="#">Blog</a>
-                    </div>
-                    <a>
-                      <h2 class="h4" th:text="${post.name}">post.name</h2>
-                    </a>
-                  </header>
-                  <p th:text="${post.summary}">Post Summary</p>
-                  <footer class="post-footer d-flex align-items-center">
-                    <a href="#"
-                      class="author d-flex align-items-center flex-wrap">
-                      <div class="avatar"></div>
-                      <div class="title">
-                        <span th:text="${post.authorFullName}">${post.authorFullName}</span>
-                      </div>
-                    </a>
-                    <div class="date">
-                      <i class="icon-clock"></i> 2 months ago
-                    </div>
-                    <div class="comments">
-                      <i class="icon-comment"></i>12
-                    </div>
-                  </footer>
-                </div>
-              </div>
+  <div class="container-fluid row">
+    <div class="container col-lg-7" style="margin-left: 20px; height: 200px;">
+      <!-- Post-->
+      <div class="row" th:each="post : ${RootPosts}">
+        <div class="card" style="width: 800px; padding:30px;">
+          <div class="card-header">Blog</div>
+          <div class="card-block">
+            <h4 class="card-title" th:text="${post.name}">post.name</h4>
+            <p class="card-text" th:text="${post.summary}">Post Summary.</p>
+            <div class="card-block">
+              <a href="#" class="card-link" th:text="${post.authorFullName}">Author</a>
+              <a href="#" class="card-link">2 Months Ago</a>
             </div>
           </div>
-          <!-- Post-->
         </div>
-      </section>
-      </main>
-      <aside class="col-lg-4">
-        <div th:replace="fragment-categories :: fragment-categories">...</div>
-      </aside>
+      </div>
+      <!-- Post-->
+    </div>
+    <div class="col-lg-4">
+      <div th:replace="fragment-categories :: fragment-categories">...</div>
     </div>
   </div>
+  <div th:replace="fragment-page-footer :: page-footer">...</div>
 </body>
-<div th:replace="fragment-page-footer :: page-footer">...</div>
 </html>
