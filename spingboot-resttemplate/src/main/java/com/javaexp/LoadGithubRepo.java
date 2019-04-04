@@ -18,6 +18,7 @@ public class LoadGithubRepo implements CommandLineRunner {
 
   @Override
   public void run(String... args) throws Exception {
+    log.info("about to call LoadGithubRepo.run()");
     RestTemplate restTemplate = new RestTemplateBuilder().build();
     ResponseEntity<JsonNode> quote = restTemplate
         .getForEntity("https://api.github.com/users/siddharthagit/repos", JsonNode.class);
