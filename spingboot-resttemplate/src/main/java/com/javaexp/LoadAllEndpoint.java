@@ -14,15 +14,15 @@ import com.fasterxml.jackson.databind.JsonNode;
 @Order(1)
 public class LoadAllEndpoint implements CommandLineRunner {
 
-  private static final Logger log = LoggerFactory.getLogger(StartApplication.class);
+  private static final Logger log = LoggerFactory.getLogger(ResttemplateApplication.class);
 
   @Override
   public void run(String... args) throws Exception {
-    log.info("about to call LoadGithubRepo.run()");
+    log.info("about to call LoadAllEndpoint.run()");
     RestTemplate restTemplate = new RestTemplateBuilder().build();
-    ResponseEntity<JsonNode> quote =
+    ResponseEntity<JsonNode> apis =
         restTemplate.getForEntity("https://api.github.com", JsonNode.class);
     
-    log.info(quote.toString());
+    //log.info(apis.toString());
   }
 }

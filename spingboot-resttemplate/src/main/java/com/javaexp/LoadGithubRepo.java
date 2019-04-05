@@ -11,17 +11,17 @@ import org.springframework.web.client.RestTemplate;
 import com.fasterxml.jackson.databind.JsonNode;
 
 @Component
-@Order(1)
+@Order(2)
 public class LoadGithubRepo implements CommandLineRunner {
 
-  private static final Logger log = LoggerFactory.getLogger(StartApplication.class);
+  private static final Logger log = LoggerFactory.getLogger(ResttemplateApplication.class);
 
   @Override
   public void run(String... args) throws Exception {
     log.info("about to call LoadGithubRepo.run()");
     RestTemplate restTemplate = new RestTemplateBuilder().build();
-    ResponseEntity<JsonNode> quote = restTemplate
+    ResponseEntity<JsonNode> repos = restTemplate
         .getForEntity("https://api.github.com/users/siddharthagit/repos", JsonNode.class);
-    log.info(quote.toString());
+    //log.info(repos.toString());
   }
 }
