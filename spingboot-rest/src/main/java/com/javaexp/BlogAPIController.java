@@ -23,7 +23,8 @@ public class BlogAPIController {
   
   @RequestMapping(value = {"/blog"}, method = RequestMethod.POST,
       produces = MediaType.APPLICATION_JSON_VALUE)
-  public @ResponseBody Object addTags(@RequestBody String input) {
+  
+  public @ResponseBody Object addBlogStory(@RequestBody String input) {
     log.info("inside /blog POST method");
     ObjectMapper mapper = new ObjectMapper();
     BlogStory response = new BlogStory();
