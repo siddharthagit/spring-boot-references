@@ -12,9 +12,9 @@ public class RestApplication {
   private static final Logger log = LoggerFactory.getLogger(RestApplication.class);
 
   public static void main(String args[]) {
-    log.info("about to call ResttemplateApplication.run()");
+    log.info("about to call RestApplication.run()");
     SpringApplication.run(RestApplication.class, args);
-    log.info("completed executing ResttemplateApplication.run()");
+    log.info("completed executing RestApplication.run()");
   }
 
 }
