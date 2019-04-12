@@ -16,7 +16,7 @@ import com.javaexp.model.BlogStory;
 
 
 @Controller
-@RequestMapping("/api/blog")
+@RequestMapping("/api")
 public class BlogAPIController {
 
   private static final Logger log = LoggerFactory.getLogger(RestApplication.class);
@@ -25,11 +25,21 @@ public class BlogAPIController {
       produces = MediaType.APPLICATION_JSON_VALUE)
 
   public @ResponseBody Object addBlogStory(@RequestBody String input) {
-    log.info("inside /blog POST method");
+    log.info("inside blog POST method");
     ObjectMapper mapper = new ObjectMapper();
     BlogStory response = new BlogStory();
     try {
-      JsonNode fc = mapper.readTree(input);
+      JsonNode jsonNode = mapper.readTree(input);
+      if (jsonNode.get("id") != null) {
+        response.setId(jsonNode.get("id").asInt());
+      } else if (jsonNode.get("summary") != null) {
+        response.setSummary(jsonNode.get("summary").asText());
+      } else if (jsonNode.get("name") != null) {
+        response.setName(jsonNode.get("name").asText());
+      } else if (jsonNode.get("description") != null) {
+        response.setDescription(jsonNode.get("description").asText());
+      }
+
     } catch (Exception e) {
       e.printStackTrace();
     }
@@ -37,11 +47,15 @@ public class BlogAPIController {
     ResponseEntity<BlogStory> apiResponse = new ResponseEntity<BlogStory>(response, HttpStatus.OK);
     return apiResponse;
   }
-  
+
   public @ResponseBody Object getBlogStories() {
-    log.info("inside /blog POST method");
-  
-    ResponseEntity<BlogStory> apiResponse = new ResponseEntity<BlogStory>(HttpStatus.OK);
+    log.info("inside blog GET method");
+    BlogStory blogStory = new BlogStory();
+    blogStory.setId(10001);
+    blogStory.setName("Blog One");
+    blogStory.setSummary("Blog Summary");
+    blogStory.setDescription("Blog Description");
+    ResponseEntity<BlogStory> apiResponse = new ResponseEntity<BlogStory>(blogStory, HttpStatus.OK);
     return apiResponse;
   }
 }
