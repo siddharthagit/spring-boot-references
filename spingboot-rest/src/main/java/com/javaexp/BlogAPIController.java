@@ -18,12 +18,12 @@ import com.javaexp.model.BlogStory;
 @Controller
 @RequestMapping("/api/blog")
 public class BlogAPIController {
-  
+
   private static final Logger log = LoggerFactory.getLogger(RestApplication.class);
-  
+
   @RequestMapping(value = {"/blog"}, method = RequestMethod.POST,
       produces = MediaType.APPLICATION_JSON_VALUE)
-  
+
   public @ResponseBody Object addBlogStory(@RequestBody String input) {
     log.info("inside /blog POST method");
     ObjectMapper mapper = new ObjectMapper();
@@ -34,8 +34,14 @@ public class BlogAPIController {
       e.printStackTrace();
     }
 
-    ResponseEntity<BlogStory> apiResponse =
-        new ResponseEntity<BlogStory>(response, HttpStatus.OK);
+    ResponseEntity<BlogStory> apiResponse = new ResponseEntity<BlogStory>(response, HttpStatus.OK);
+    return apiResponse;
+  }
+  
+  public @ResponseBody Object getBlogStories() {
+    log.info("inside /blog POST method");
+  
+    ResponseEntity<BlogStory> apiResponse = new ResponseEntity<BlogStory>(HttpStatus.OK);
     return apiResponse;
   }
 }
