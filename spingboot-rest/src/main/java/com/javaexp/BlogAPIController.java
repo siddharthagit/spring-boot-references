@@ -23,7 +23,6 @@ public class BlogAPIController {
 
   @RequestMapping(value = {"/blog"}, method = RequestMethod.POST,
       produces = MediaType.APPLICATION_JSON_VALUE)
-
   public @ResponseBody Object addBlogStory(@RequestBody String input) {
     log.info("inside blog POST method");
     ObjectMapper mapper = new ObjectMapper();
@@ -48,6 +47,8 @@ public class BlogAPIController {
     return apiResponse;
   }
 
+  @RequestMapping(value = {"/blog"}, method = RequestMethod.GET,
+      produces = MediaType.APPLICATION_JSON_VALUE)
   public @ResponseBody Object getBlogStories() {
     log.info("inside blog GET method");
     BlogStory blogStory = new BlogStory();
