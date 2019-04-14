@@ -2,6 +2,7 @@ package com.javaexp;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -21,9 +22,11 @@ public class BlogAPIController {
 
   private static final Logger log = LoggerFactory.getLogger(RestApplication.class);
 
+  @Autowired
+  BlogService blogService;
+
   @RequestMapping(value = {"/blog"}, method = RequestMethod.POST,
       produces = MediaType.APPLICATION_JSON_VALUE)
-
   public @ResponseBody Object addBlogStory(@RequestBody String input) {
     log.info("inside blog POST method");
     ObjectMapper mapper = new ObjectMapper();
@@ -48,13 +51,11 @@ public class BlogAPIController {
     return apiResponse;
   }
 
+  @RequestMapping(value = {"/blog"}, method = RequestMethod.GET,
+      produces = MediaType.APPLICATION_JSON_VALUE)
   public @ResponseBody Object getBlogStories() {
     log.info("inside blog GET method");
-    BlogStory blogStory = new BlogStory();
-    blogStory.setId(10001);
-    blogStory.setName("Blog One");
-    blogStory.setSummary("Blog Summary");
-    blogStory.setDescription("Blog Description");
+    BlogStory blogStory = blogService.getBlogStory();
     ResponseEntity<BlogStory> apiResponse = new ResponseEntity<BlogStory>(blogStory, HttpStatus.OK);
     return apiResponse;
   }
