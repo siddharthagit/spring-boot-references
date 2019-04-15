@@ -22,7 +22,5 @@ public class LoadAllEndpoint implements CommandLineRunner {
     RestTemplate restTemplate = new RestTemplateBuilder().build();
     ResponseEntity<JsonNode> apis =
         restTemplate.getForEntity("https://api.github.com", JsonNode.class);
-    
-    //log.info(apis.toString());
   }
 }

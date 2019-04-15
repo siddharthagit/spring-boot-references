@@ -22,6 +22,5 @@ public class LoadGithubRepo implements CommandLineRunner {
     RestTemplate restTemplate = new RestTemplateBuilder().build();
     ResponseEntity<JsonNode> repos = restTemplate
         .getForEntity("https://api.github.com/users/siddharthagit/repos", JsonNode.class);
-    //log.info(repos.toString());
   }
 }
