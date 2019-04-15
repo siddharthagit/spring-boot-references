@@ -15,7 +15,6 @@ public class RestApplication {
   public static void main(String args[]) {
     log.info("about to call RestApplication.run()");
     SpringApplication.run(RestApplication.class, args);
-    
     log.info("completed executing RestApplication.run()");
   }
 
