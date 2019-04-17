@@ -6,7 +6,7 @@
   <version>1.0.0-SNAPSHOT</version>
   <packaging>jar</packaging>
   <name>Javaexp Rest template</name>
-  <description>Resttemplate Example</description>
+  <description>Rest template Example</description>
   <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
