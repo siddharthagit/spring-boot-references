@@ -96,3 +96,15 @@ main,aside {
 .blog-post .post-comments {
     margin-top: 50px
 }
+
+.legend {
+    font-weight: bold;
+    font-size: 14px;
+  }
+  
+  .rowDesign {
+    font-weight: bold;
+    font-size: 14px;
+    background-color: #D3D3D3;
+    margin-top: 20px;
+  }
