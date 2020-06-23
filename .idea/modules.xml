@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/spring-boot-rest/src/main/bootng-springboot-rest.iml" filepath="$PROJECT_DIR$/spring-boot-rest/src/main/bootng-springboot-rest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring-boot-hello/src/main/main.iml" filepath="$PROJECT_DIR$/spring-boot-hello/src/main/main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring-boot-profiles/src/main/main2.iml" filepath="$PROJECT_DIR$/spring-boot-profiles/src/main/main2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring-boot-web-starter/src/main/main3.iml" filepath="$PROJECT_DIR$/spring-boot-web-starter/src/main/main3.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring-boot-junit/src/main/main4.iml" filepath="$PROJECT_DIR$/spring-boot-junit/src/main/main4.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring-boot-resttemplate/src/main/main5.iml" filepath="$PROJECT_DIR$/spring-boot-resttemplate/src/main/main5.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring-boot-standalone-app/src/main/main6.iml" filepath="$PROJECT_DIR$/spring-boot-standalone-app/src/main/main6.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring-boot-junit/src/test/test.iml" filepath="$PROJECT_DIR$/spring-boot-junit/src/test/test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring-boot-rest/src/test/test1.iml" filepath="$PROJECT_DIR$/spring-boot-rest/src/test/test1.iml" />
+    </modules>
+  </component>
+</project>

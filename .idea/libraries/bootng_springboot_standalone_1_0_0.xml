@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="bootng-springboot-standalone-1.0.0">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/spring-boot-standalone-app/target/bootng-springboot-standalone-1.0.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

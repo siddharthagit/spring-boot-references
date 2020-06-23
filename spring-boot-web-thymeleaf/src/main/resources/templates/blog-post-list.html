@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"></meta>
+<link rel="stylesheet" type="text/css"
+	th:href="@{~/css/bootstrap.min.css}" />
+<link rel="stylesheet" type="text/css"
+	th:href="@{~/css/style.default.css}" />
+<title>Blog Example</title>
+</head>
+<body>
+	<div th:replace="fragment-page-header :: page-header"></div>
+	<div class="container-fluid ">
+		<div class="container col-lg-7"
+			style="margin-left: 20px; height: 200px;">
+			<div class="row" th:each="post : ${RootPosts}">
+
+				<div class="card col-sm-10 " style="margin-top: 20px">
+					<div class="card-body">
+						<h5 class="card-title" th:text="${post.name}">Special title
+							treatment</h5>
+						<p class="card-text" th:text="${post.summary}">With supporting
+							text below as a natural lead-in to additional content.</p>
+						<a href="#" class="btn btn-primary">Go Visit</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div style="margin-left: 20px; height: 200px;"
+			th:replace="fragment-page-footer :: page-footer">...</div>
+</body>
+</html>

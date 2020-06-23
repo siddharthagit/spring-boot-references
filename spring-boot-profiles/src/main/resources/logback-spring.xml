@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<include
+		resource="org/springframework/boot/logging/logback/defaults.xml" />
+	<appender name="stdout"
+		class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>%d{yy-MMMM-dd HH:mm:ss:SSS} %5p %t %c{2}:%L - %m%n
+			</pattern>
+		</encoder>
+	</appender>
+	<springProfile name="dev">
+		<include
+			resource="org/springframework/boot/logging/logback/console-appender.xml" />
+
+		<root level="TRACE">
+			<appender-ref ref="CONSOLE" />
+		</root>
+		<logger name="com.bootng" level="TRACE" />
+	</springProfile>
+
+	<springProfile name="prod">
+		<include
+			resource="org/springframework/boot/logging/logback/console-appender.xml" />
+
+		<root level="ERROR">
+			<appender-ref ref="CONSOLE" />
+		</root>
+		<logger name="com.bootng" level="ERROR" />
+	</springProfile>
+</configuration>
