@@ -19,10 +19,10 @@ public class RestExceptionHandler {
    @ExceptionHandler(Exception.class)
    protected ResponseEntity<Object> handleJPAError(
 		   Exception ex) {
-	   log.info("--------------handleJPAError----------------");
-	   APIError apiError = new APIError(HttpStatus.CONFLICT.value(), "Resource not found");
+	   log.info("--------------handleJPAError----------------" + ex.getMessage());
+	   APIError apiError = new APIError(HttpStatus.INTERNAL_SERVER_ERROR.value(), ex.getMessage());
        apiError.setMessage(ex.getMessage());
-       return buildResponseEntity(apiError, HttpStatus.CONFLICT);
+       return buildResponseEntity(apiError, HttpStatus.INTERNAL_SERVER_ERROR);
    }
    
    private ResponseEntity<Object> buildResponseEntity(APIError apiError, HttpStatus status) {
