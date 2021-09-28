@@ -25,15 +25,15 @@ import com.fasterxml.jackson.databind.ObjectMapper;
  *
  */
 @RestController
-@RequestMapping("/blogapi")
-public class BlogAPIController {
+@RequestMapping("/blogapi/v1/")
+public class BlogControllerV1 {
 
-	private static final Logger log = LoggerFactory.getLogger(BlogAPIController.class);
+	private static final Logger log = LoggerFactory.getLogger(BlogControllerV1.class);
 
 	@Autowired
 	BlogService blogService;
 
-	@RequestMapping(value = { "/v1/blogs" }, method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value = { "/blogs" }, method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<BlogStory> addBlogStory(@RequestBody String input) {
 		log.info("inside blog POST method" + input);
 		ObjectMapper mapper = new ObjectMapper();
@@ -67,7 +67,7 @@ public class BlogAPIController {
 		return apiResponse;
 	}
 
-	@RequestMapping(value = { "/v1/blogs" }, method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value = { "blogs" }, method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<List<BlogStory>> getBlogStories() {
 		ResponseEntity<List<BlogStory>> apiResponse;
 		try {
@@ -81,7 +81,7 @@ public class BlogAPIController {
 	}
 
 	@RequestMapping(value = {
-			"/v1/blogs/{id}" }, method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+			"blogs/{id}" }, method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<BlogStory> getBlogStory(@PathVariable(value = "") String id) {
 		ResponseEntity<BlogStory> apiResponse;
 		BlogStory blogStory;
@@ -90,7 +90,6 @@ public class BlogAPIController {
 			apiResponse = new ResponseEntity<BlogStory>(blogStory, HttpStatus.OK);
 		} catch (NotFoundException e) {
 			apiResponse = new ResponseEntity<BlogStory>(HttpStatus.NOT_FOUND);
-			e.printStackTrace();
 		} catch (AppException e) {
 			apiResponse = new ResponseEntity<BlogStory>(HttpStatus.INTERNAL_SERVER_ERROR);
 			log.error(e.getMessage());
@@ -98,11 +97,5 @@ public class BlogAPIController {
 		return apiResponse;
 	}
 
-	@RequestMapping(value = {
-			"/v2/blogs/{id}" }, method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<BlogStory> getBlogStoryV2(@PathVariable(value = "") String id)
-			throws AppException, NotFoundException {
-		BlogStory blogStory = blogService.getBlogStory(id);
-		return new ResponseEntity<BlogStory>(blogStory, HttpStatus.OK);
-	}
+	
 }

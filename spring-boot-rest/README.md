@@ -23,18 +23,10 @@ Following are the list of REST API's built in this project
 - GET  /blogapi/v1/categories/{ID}
 - POST /blogapi/v1/categories
 
-- GET  /blogapi/v1/tags
-- GET  /blogapi/v2/tags
-- GET  /blogapi/v3/tags
-
 - GET  /blogapi/v1/comments
 - GET  /blogapi/v2/comments/{ID}
 - POST /blogapi/v3/comments
 - PUT  /blogapi/v2/comments/{ID}
-
-- GET  /helloapi/welcome
-- GET  /helloapi/welcome2
-- GET  /helloapi/welcome3
 
 
 ##Different Examples
@@ -43,7 +35,6 @@ Following are the list of REST API's built in this project
 - Using @RestController annotation -> BlogAPIController
 - Using ObjectMapper -> BlogAPIController
 - Using @PathVariable -> BlogAPIController
-- Work with ResponseEntity -> HelloController
 
 - Using @GetMapping annotation -> CommentsAPIController
 - Using @PostMapping annotation -> CommentsAPIController

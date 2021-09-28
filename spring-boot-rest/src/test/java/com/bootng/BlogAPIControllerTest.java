@@ -24,12 +24,12 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import com.bootng.beans.AppException;
 import com.bootng.beans.NotFoundException;
-import com.bootng.controller.BlogAPIController;
+import com.bootng.controller.BlogControllerV1;
 import com.bootng.model.BlogStory;
 import com.bootng.service.BlogService;
 
 @ExtendWith(SpringExtension.class)
-@ContextConfiguration(classes = { BlogAPIController.class, BlogService.class })
+@ContextConfiguration(classes = { BlogControllerV1.class, BlogService.class })
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class BlogAPIControllerTest {
 
@@ -37,7 +37,7 @@ public class BlogAPIControllerTest {
 	BlogService blogService;
 
 	@InjectMocks
-	private BlogAPIController controller;
+	private BlogControllerV1 controller;
 
 	@BeforeAll
 	public void setup() {

@@ -25,10 +25,10 @@ import com.bootng.service.BlogService;
  *
  */
 @Controller
-@RequestMapping("/blogapi")
-public class CategoryAPIController {
+@RequestMapping("/blogapi/v1")
+public class CategoryController {
 
-	private static final Logger log = LoggerFactory.getLogger(CategoryAPIController.class);
+	private static final Logger log = LoggerFactory.getLogger(CategoryController.class);
 
 	@Autowired
 	BlogService blogService;
@@ -40,13 +40,14 @@ public class CategoryAPIController {
 	 * @return List of all BlogCategory
 	 */
 	@RequestMapping(value = {
-			"/v1/categories" }, method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+			"/categories" }, method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public @ResponseBody ResponseEntity<List<BlogCategory>> getBlogCats() {
 		ResponseEntity<List<BlogCategory>> apiResponse;
 		try {
 			List<BlogCategory> categories = blogService.getBlogCategories();
 			apiResponse = new ResponseEntity<List<BlogCategory>>(categories, HttpStatus.OK);
-		} catch (AppException e) {
+		} 
+		catch (AppException e) {
 			apiResponse = new ResponseEntity<List<BlogCategory>>(HttpStatus.INTERNAL_SERVER_ERROR);
 			log.error(e.getMessage());
 		}
@@ -61,7 +62,7 @@ public class CategoryAPIController {
 	 * @return BlogCategory
 	 */
 	@RequestMapping(value = {
-			"/v1/categories/{id}" }, method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+			"/categories/{id}" }, method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<BlogCategory> getBlogStory(@PathVariable(value = "") String id) {
 		ResponseEntity<BlogCategory> apiResponse;
 		BlogCategory blogCategory;
