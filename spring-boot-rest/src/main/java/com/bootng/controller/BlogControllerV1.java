@@ -19,11 +19,14 @@ import com.bootng.service.BlogService;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import io.swagger.v3.oas.annotations.Hidden;
+
 /**
  * Controller which is used to CRUD operation on BlogStory objects. It
  * uses @RestController, and returns ResponseEntity<BlogStory>
  *
  */
+@Hidden
 @RestController
 @RequestMapping("/blogapi/v1/")
 public class BlogControllerV1 {
